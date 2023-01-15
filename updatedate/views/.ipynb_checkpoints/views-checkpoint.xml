@@ -1,0 +1,63 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <record id="res_partner_view" model="ir.ui.view">
+        
+            <field name="name">res.partner.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                
+                <xpath expr="//sheet/group/group/field[@name='phone']" position="after"> 
+                    
+                            <field name ="isbirthday"/>
+                </xpath>
+                
+            </field>
+                
+        
+    </record>
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="updatedate.action_window">
+      <field name="name">updatedate window</field>
+      <field name="res_model">updatedate.updatedate</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="updatedate.action_server">
+      <field name="name">updatedate server</field>
+      <field name="model_id" ref="model_updatedate_updatedate"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="updatedate" id="updatedate.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="updatedate.menu_1" parent="updatedate.menu_root"/>
+    <menuitem name="Menu 2" id="updatedate.menu_2" parent="updatedate.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="updatedate.menu_1_list" parent="updatedate.menu_1"
+              action="updatedate.action_window"/>
+    <menuitem name="Server to list" id="updatedate" parent="updatedate.menu_2"
+              action="updatedate.action_server"/>
+-->
+  </data>
+</odoo>
